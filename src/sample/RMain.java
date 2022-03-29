@@ -69,11 +69,11 @@ public class RMain extends Application{
 
         /////////////////////////////////////////////////////
         contactsTable =new TableView<RContact>();
-        contactsTable.setItems(rContactData.getContacts());
-
+        contactsTable.setItems(rContactData.getContacts());//putting the line in initilize method[called in init] is giving error
+        //maybe because init is called before start is called as tableView is initilized in start init gives error..
 
         TableColumn<RContact,String> colFirstName=new TableColumn<>("First Name");
-        colFirstName.setCellValueFactory(new PropertyValueFactory<RContact,String>("firstName"));
+        colFirstName.setCellValueFactory(new PropertyValueFactory<RContact,String>("firstName"));//we use SingleStringProperty
         TableColumn<RContact,String> colLastName=new TableColumn<>("Last Name");
         colLastName.setCellValueFactory(new PropertyValueFactory<RContact,String>("lastName"));
         TableColumn<RContact,String> colPhoneNumber=new TableColumn<>("Phone Number");
