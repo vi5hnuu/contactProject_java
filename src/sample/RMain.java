@@ -69,6 +69,7 @@ public class RMain extends Application{
 
         /////////////////////////////////////////////////////
         contactsTable =new TableView<RContact>();
+        contactsTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         contactsTable.setItems(rContactData.getContacts());//putting the line in initilize method[called in init] is giving error
         //maybe because init is called before start is called as tableView is initilized in start init gives error..
 
@@ -125,7 +126,7 @@ public class RMain extends Application{
         gridPane.add(textFieldNotes,1,3);
         dialogPane.setContent(gridPane);
         dialog.getDialogPane().setContent(dialogPane);
-        dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.OK); //wont work it buttons directly added in dialoguepane..
         dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
 
         Optional<ButtonType> result=dialog.showAndWait();
